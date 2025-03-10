@@ -1,0 +1,5 @@
+function run() {
+    createNodes()
+}
+
+run()

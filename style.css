@@ -1,0 +1,272 @@
+body {
+    background-image: url(test.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-color: #272727;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    width: 100%;
+    transition: background-position 50ms ease-out;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: "Audiowide", sans-serif;
+    text-transform: uppercase;
+    text-shadow: 4px 4px 3px #0000005d;
+}
+
+body h2:first-of-type {
+    padding-top: 5%;
+    animation: alternate 3s ease-in-out;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    height: 8%;
+    z-index: 1000;
+    background-color: #000000;
+    top: 0;
+    box-shadow: 2px 2px 20px #474747;
+}
+
+#logo-image {
+    max-width: 10vmax;
+    height: auto;
+    filter: drop-shadow(4px 4px 2px #ffffff2d);
+}
+
+header a {
+    position: relative;
+    border-bottom: double 4px #474747;
+    border-left: solid 1px #474747;
+    border-right: double 4px #474747;
+    display: inline-block;
+    font-size: 1vmax;
+    padding: 0 15px;
+    padding-top: 5px;
+    text-decoration: none;
+    color: white;
+    overflow: hidden;
+    transition: border-radius 500ms linear, color 500ms linear;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 45%, 80% 100%, 0% 100%)
+}
+
+header a::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #ccff00 25%, #ccff0000);
+    transition: top 100ms linear;
+    z-index: -1;
+}
+
+header a:hover, header a:focus {
+    color: #272727;
+    border-color: #27272700;
+    text-shadow: 2px 2px 4px rgb(255, 255, 255);
+    transform: rotateY('angle');
+    font-style: italic;
+}
+
+header a:hover::after, header a:focus {
+    top: 0;
+}
+
+header + h2 {
+    margin-top: 20%;
+
+}
+
+.container-background {
+    background-color: #ccff00bf;
+}
+
+div#partners {
+    color: #1E1E1E;
+}
+
+#contact-btn, #send-btn, #close-btn {
+    transition: 500ms;
+    padding: 5px;
+    background-color: #CCFF00;
+    opacity: 1;
+    color: #272727;
+    font-weight: bold;
+}
+
+#contact-btn:hover, #send-btn:hover {
+    padding: 5px;
+    background-color: #f1ffba;
+}
+
+#contact-btn:hover, #send-btn:hover {
+    transform: scale(1.05);
+}
+
+
+#close-btn:hover {
+    background-color: #f1ffba;
+    transition: 500ms;
+    transform: scale(1.15);
+    border-radius: 50px;
+}
+
+.card {
+    transition: 500ms;
+    background-color: #272727;
+    color: white;
+}
+
+.card:hover {
+    transition: 150ms;
+    box-shadow: 0 5px 10px #272727;
+    transform: scale(1.05)
+}
+
+#services {
+    overflow: hidden;
+}
+
+#services img {
+    display: block;
+    margin: auto;
+    width: 80%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 15px;
+}
+
+#portfolio img {
+    margin: 5px auto;
+    border-radius: 15px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+#portfolio img:hover{
+    transition: 100ms;
+    box-shadow: 0 5px 10px #ccff00;
+    transform: scale(1.03)
+}
+
+#portfolio img,  #services img {
+    transition: 250ms;
+}
+
+#portfolio div {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#services h3 {
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 2px 2px 1px black;
+}
+
+#partners img {
+    display: block;
+    margin: 5px auto;
+    width: 150px;
+    height: auto;
+    justify-items: center;
+    filter: drop-shadow(1px 1px 5px #ffffff6e);
+}
+
+#contact {
+    width: 80%;
+    height: 150px;
+    margin: 15px auto;
+    background: #474747;
+    box-shadow: 0 0px 15px black;
+    border-radius: 5px;
+}
+
+h2 {
+    color: white;
+    margin-top: 5%;
+}
+
+hr {
+    height: 10px;
+    background-color: #ccff00;
+    color: #ccff00;
+    max-width: 20%;
+    margin: 50px auto;
+    box-shadow: 0px 15px 50px rgba(204, 255, 0, 1);
+    opacity: 1;
+}
+
+footer {
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.footer-background {
+    background-image: url(test.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 15%;
+}
+
+footer li {
+    list-style: none;
+}
+
+footer p {
+    margin: 0;
+}
+
+.modal-content {
+    background-color: #272727;
+    color: white;
+}
+
+.form-control {
+    background-color: #777777;
+    border: none;
+    color: white;
+}
+
+.form-control:hover {
+    transform: scale(1.01)
+}
+
+#service-1, #service-2, #service-3 {
+    width: 100%;
+    height: 30rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 0px 15px #ffffffc9;
+}
+
+#credits img {
+    margin: 15px 5px;
+    max-width: 65px;
+}
+
+#service-1 {
+    background-image: url(src/images/services/custom\ assets.jpg);
+    background-attachment: fixed;
+}
+
+#service-2 {
+    background-image: url(src/images/services/decentraland.jpg);
+    background-attachment: fixed;
+}
+
+#service-3 {
+    background-image: url(src/images/services/unreal_engine.jpg);
+    background-attachment: fixed;
+}
