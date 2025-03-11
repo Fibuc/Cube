@@ -105,7 +105,7 @@ div#partners {
     color: #1E1E1E;
 }
 
-#contact-btn, #send-btn, #close-btn {
+#contact-btn, #send-btn, #close-btn, .btn-go-to {
     transition: 500ms;
     padding: 5px;
     background-color: #CCFF00;
@@ -119,7 +119,7 @@ div#partners {
     background-color: #f1ffba;
 }
 
-#contact-btn:hover, #send-btn:hover {
+#contact-btn:hover, #send-btn:hover, .btn-go-to:hover {
     transform: scale(1.05);
 }
 
