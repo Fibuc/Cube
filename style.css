@@ -36,9 +36,19 @@ header {
     max-width: 10vmax;
     height: auto;
     filter: drop-shadow(4px 4px 2px #ffffff2d);
+    transition: 3s;
 }
 
-header a {
+#logo-image:hover {
+    transition: 3s;
+    animation: squeeze 500ms alternate infinite ease-in-out, white-shadow 1s alternate infinite ease-in-out;
+}
+
+header {
+    z-index: 20000;
+}
+
+nav a {
     position: relative;
     border-bottom: double 4px #474747;
     border-left: solid 1px #474747;
@@ -54,7 +64,7 @@ header a {
     clip-path: polygon(0% 0%, 100% 0%, 100% 45%, 80% 100%, 0% 100%)
 }
 
-header a::after {
+nav a::after {
     content: "";
     display: inline-block;
     position: absolute;
@@ -67,7 +77,7 @@ header a::after {
     z-index: -1;
 }
 
-header a:hover, header a:focus {
+nav a:hover, nav a:focus {
     color: #272727;
     border-color: #27272700;
     text-shadow: 2px 2px 4px rgb(255, 255, 255);
@@ -75,13 +85,16 @@ header a:hover, header a:focus {
     font-style: italic;
 }
 
-header a:hover::after, header a:focus {
+nav a:hover::after, nav a:focus {
     top: 0;
 }
 
-header + h2 {
-    margin-top: 20%;
+#emailModal {
+    margin-top: 25vh;
+}
 
+.first-h2 {
+    margin-top: 20vh;
 }
 
 .container-background {
@@ -154,7 +167,7 @@ div#partners {
 
 #portfolio img:hover{
     transition: 100ms;
-    box-shadow: 0 5px 10px #ccff00;
+    box-shadow: 0 0 10px 2px #ccff00;
     transform: scale(1.03)
 }
 
@@ -223,8 +236,9 @@ footer li {
     list-style: none;
 }
 
-footer p {
-    margin: 0;
+footer a {
+    color: white;
+    text-decoration: none;
 }
 
 .modal-content {
@@ -269,4 +283,97 @@ footer p {
 #service-3 {
     background-image: url(src/images/services/unreal_engine.jpg);
     background-attachment: fixed;
+}
+
+.transition-block-door-1, .transition-block-door-2 {
+    background-image: url(src/images/style/Porte.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    width: 50vw;
+    height: 100vw;
+    z-index: 20000;
+    transition: left 2s cubic-bezier(.52,.01,.41,1.19);
+}
+
+.transition-block-door-1 {
+    left: -60%;
+}
+
+.transition-block-door-2 {
+    left: 110%;
+    transform: rotateY(180deg);
+}
+
+.slide-in {
+    left: 0%;
+}
+
+.slide-out {
+    left: 50%;
+}
+
+.pipe-right, .pipe-left {
+    background-image: url(src/images/style/tuyau\ test.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 130%;
+    width: 12%;
+    height: 700vh;
+    z-index: 10001;
+    filter: drop-shadow(5px 10px 15px  #000000);
+}
+
+.pipe-right {
+    background-position: right center;
+    right: 0;
+}
+
+.pipe-left {
+    transform: rotateY(180deg);
+    background-position: left center;
+    left: 0;
+}
+
+@keyframes squeeze {
+    from {
+        transform: rotate(0deg);
+    }
+    70% {
+        transform: rotate(2deg);
+    }
+    to {
+        transform: rotate(-2deg);
+    }
+}
+
+@keyframes white-shadow {
+    from {
+        filter: drop-shadow(4px 4px 2px #ffffff2d);
+    }
+    to {
+        filter: drop-shadow(4px 4px 2px #ffffffcc);
+    }
+}
+
+.swiper {
+    width: 90%;
+}
+
+.swiper-slide {
+    padding: 15px;
+}
+
+.swiper-pagination {
+    width: 100%;
+}
+
+.swiper-pagination span {
+    background-color: #CCFF00;
+    top: 40%;
+    height: 12px;
+    width: 12px;
 }
