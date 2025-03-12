@@ -1,5 +1,5 @@
 body {
-    background-image: url(src/images/background/background.png);
+    background-image: url(../src/images/background/background.png);
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -232,67 +232,10 @@ hr {
     box-shadow: 0px 15px 50px rgba(204, 255, 0, 1);
     opacity: 1;
 }
-/* 
-hr {
-    height: 4px;
-    background-color: #ffffff21;
-    color: #ffffff00;
-    width: 95%;
-    margin: 50px auto;
-    box-shadow: 0px 6px 20px rgb(255 255 255);
-    border-radius: 15px;
-}
-
-hr {
-    height: 4px;
-    background-color: #ffffff0d;
-    color: #ffffff00;
-    width: 95%;
-    margin: 50px auto;
-    box-shadow: 0px 6px 9px rgb(255 255 255);
-    border-radius: 15px;
-}
-
-hr {
-    height: 4px;
-    background-color: #ffffff24;
-    color: #ffffff00;
-    width: 95%;
-    margin: 50px auto;
-    box-shadow: 0px 0px 20px rgb(255 255 255);
-    border-radius: 15px;
-}
-
-hr {
-    height: 10px;
-    background-color: #ffffff57;
-    color: #57575742;
-    width: 95%;
-    margin: 50px auto;
-    box-shadow: 0px 0px 20px rgb(255 255 255);
-    border-radius: 15px;
-}
-
-hr {
-    height: 10px;
-    background-color: #ffffff30;
-    color: #2f2e2e59;
-    width: 95%;
-    margin: 50px auto;
-    box-shadow: 0px 0px 48px rgb(255 255 255);
-    border-radius: 15px;
-} */
 
 footer {
     padding-top: 50px;
     padding-bottom: 100px;
-}
-
-.footer-background {
-    background-image: url(test.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center 15%;
 }
 
 footer li {
@@ -338,22 +281,22 @@ footer a {
 }
 
 #service-1 {
-    background-image: url(src/images/services/custom\ assets.jpg);
+    background-image: url(../src/images/services/custom\ assets.jpg);
     background-attachment: fixed;
 }
 
 #service-2 {
-    background-image: url(src/images/services/decentraland.jpg);
+    background-image: url(../src/images/services/decentraland.jpg);
     background-attachment: fixed;
 }
 
 #service-3 {
-    background-image: url(src/images/services/unreal_engine.jpg);
+    background-image: url(../src/images/services/unreal_engine.jpg);
     background-attachment: fixed;
 }
 
 .transition-block-door-1, .transition-block-door-2 {
-    background-image: url(src/images/style/Porte.png);
+    background-image: url(../src/images/style/Porte.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -382,7 +325,7 @@ footer a {
 }
 
 .pipe-right, .pipe-left {
-    background-image: url(src/images/style/tuyau\ test.png);
+    background-image: url(../src/images/style/tuyau\ test.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;

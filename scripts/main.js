@@ -1,5 +1,0 @@
-function run() {
-    createNodes()
-}
-
-run()
