@@ -11,7 +11,7 @@ window.addEventListener('scroll', () => {
         let offset = (scrollPosition - scrollTrigger) * 0.1;
         document.body.style.backgroundPosition = `center ${-offset}px`;
         
-        let pipeoffset = (scrollPosition - scrollTrigger) * 1.4;
+        let pipeoffset = (scrollPosition - scrollTrigger) * 1.8;
         pipeRight.style.top = `${-pipeoffset + 500}px`;
         pipeRight.style.opacity = 1
         pipeLeft.style.opacity = 1
