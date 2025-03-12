@@ -3,7 +3,7 @@ const numberOfImagePortfolio = 25
 window.addEventListener('scroll', () => {
     let scrollPosition = window.scrollY;
     let windowHeight = window.innerHeight;
-    let scrollTrigger = windowHeight / 4;
+    let scrollTrigger = windowHeight / 20;
     let pipeRight = document.querySelector(".pipe-right");
     let pipeLeft = document.querySelector(".pipe-left");
 
@@ -12,10 +12,10 @@ window.addEventListener('scroll', () => {
         document.body.style.backgroundPosition = `center ${-offset}px`;
         
         let pipeoffset = (scrollPosition - scrollTrigger) * 1.4;
-        pipeRight.style.top = `${-pipeoffset}px`;
+        pipeRight.style.top = `${-pipeoffset + 500}px`;
         pipeRight.style.opacity = 1
         pipeLeft.style.opacity = 1
-        pipeLeft.style.top = `${-pipeoffset}px`;
+        pipeLeft.style.top = `${-pipeoffset + 500}px`;
     } else {
         document.body.style.backgroundPosition = 'center top';
     }
@@ -41,10 +41,14 @@ document.getElementById("transition-link").addEventListener("click", function(ev
 
 
 const swiper = new Swiper('.swiper', {
-    loop: false,
+    loop: true,
     grabCursor: true,
     spaceBetween: 50,
     speed: 1000,
+    autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+      },
   
     pagination: {
       el: '.swiper-pagination',
