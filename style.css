@@ -340,9 +340,9 @@ footer a {
 }
 
 .pipe-left {
-    transform: rotateY(180deg);
-    background-position: left center;
-    left: -50px;
+    transform: scaleX(-1);
+    background-position: right center;
+    left: 0;
 }
 
 @keyframes squeeze {
