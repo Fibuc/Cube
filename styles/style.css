@@ -100,7 +100,7 @@ nav a:hover::after, nav a:focus {
     background-color: #ccff00bf;
 }
 
-div#partners {
+div#clients {
     color: #1E1E1E;
 }
 
@@ -203,7 +203,7 @@ div#partners {
     text-shadow: 2px 2px 1px black;
 }
 
-#partners img {
+#clients img {
     display: block;
     margin: 5px auto;
     width: 150px;
