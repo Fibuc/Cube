@@ -325,15 +325,9 @@ footer a {
 }
 
 .pipe-right, .pipe-left {
-    background-image: url(../src/images/style/tuyau\ test.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
     position: absolute;
-    top: 500px;
-    width: 12%;
-    height: 700%;
-    max-height: 9000px;
+    width: min(10vw, 600px);
+    height: auto;
     z-index: 10001;
     filter: drop-shadow(5px 10px 15px  #000000);
 }

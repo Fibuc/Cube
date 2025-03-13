@@ -1,25 +1,58 @@
-const numberOfImagePortfolio = 25
+const windowHeight = window.innerHeight;
+const windowWidth = window.innerWidth;
+
+let selectedRatioOffset = null
+
+if (windowHeight > quadHDHeight) {
+    if (windowWidth < fourKWideWidth) {
+        selectedRatioOffset = normal4KOffsetRatio;
+    } else if (windowWidth < fourKUltraWideWidth) {
+        selectedRatioOffset = wide4KOffsetRatio;
+    } else {
+        selectedRatioOffset = ultraWide4KOffsetRatio;
+    }
+} else if (windowHeight > fullHDHeight) {
+    if (windowWidth < quadHDWideWidth) {
+        selectedRatioOffset = normalQuadHDOffsetRatio;
+    } else if (windowWidth < quadHDUltraWideWidth) {
+        selectedRatioOffset = wideQuadHDOffsetRatio;
+    } else {
+        selectedRatioOffset = ultraWideQuadHDOffsetRatio;
+    }
+} else {
+    if (windowWidth < fullHDWideWidth) {
+        selectedRatioOffset = normalHDOffsetRatio;
+    } else if (windowWidth < fullHDUltraWideWidth) {
+        selectedRatioOffset = wideHDOffsetRatio;
+    } else {
+        selectedRatioOffset = ultraWideHDOffsetRatio;
+    }
+}
+
+let pipeRight = document.querySelector(".pipe-right");
+let pipeLeft = document.querySelector(".pipe-left");
+let startPosition = windowHeight / 3;
+pipeRight.style.top = `${startPosition}px`;
+pipeLeft.style.top = `${startPosition}px`;
 
 window.addEventListener('scroll', () => {
     let scrollPosition = window.scrollY;
-    let windowHeight = window.innerHeight;
-    let scrollTrigger = windowHeight / 20;
-    let pipeRight = document.querySelector(".pipe-right");
-    let pipeLeft = document.querySelector(".pipe-left");
+    let scrollTrigger = windowHeight / 200;
 
     if (scrollPosition > scrollTrigger) {
         let offset = (scrollPosition - scrollTrigger) * 0.1;
         document.body.style.backgroundPosition = `center ${-offset}px`;
         
-        let pipeoffset = (scrollPosition - scrollTrigger) * 1.8;
-        pipeRight.style.top = `${-pipeoffset + 500}px`;
+        let pipeOffset = (scrollPosition - scrollTrigger) * selectedRatioOffset;
+        pipeRight.style.top = `${-pipeOffset + startPosition}px`;
         pipeRight.style.opacity = 1
         pipeLeft.style.opacity = 1
-        pipeLeft.style.top = `${-pipeoffset + 500}px`;
+        pipeLeft.style.top = `${-pipeOffset + startPosition}px`;
     } else {
         document.body.style.backgroundPosition = 'center top';
     }
 });
+
 
 
 document.getElementById("transition-link").addEventListener("click", function(event) {
@@ -80,7 +113,6 @@ const swiperWrapper = document.querySelector(".swiper-wrapper")
 for (let i = 1; i <= numberOfImagePortfolio; i++) {
     let img = new Image()
     img.src = `src/images/portfolio/portfolio${i}.png`
-    console.log(swiperWrapper)
     img.onload = () => {
         let slide = document.createElement("div");
         slide.classList.add("swiper-slide");
