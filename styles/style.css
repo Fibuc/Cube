@@ -17,9 +17,23 @@ h1, h2, h3, h4, h5 {
     text-shadow: 4px 4px 3px #0000005d;
 }
 
-h4 {
-    font-size: 0.8rem;
+h2 {
+    font-size: calc(1.325rem + .9vw)
 }
+
+h3 {
+    font-size: calc(1rem + .7vw);
+    font-family: 'Orbitron', sans-serif;
+}
+
+h4 {
+    font-size: calc(1rem + .4vw)
+}
+
+footer a, .copywrite {
+    font-size: calc(.7rem + .35vw);
+}
+
 
 body h2:first-of-type {
     animation: alternate 3s ease-in-out;
@@ -33,6 +47,7 @@ header {
     background-color: #000000;
     top: 0;
     box-shadow: 2px 2px 20px #474747;
+    z-index: 20000;
 }
 
 #logo-image {
@@ -47,8 +62,8 @@ header {
     animation: squeeze 500ms alternate infinite ease-in-out, white-shadow 1s alternate infinite ease-in-out;
 }
 
-header {
-    z-index: 20000;
+header .container:first-child {
+    max-width: 80%;
 }
 
 nav a {
@@ -57,9 +72,9 @@ nav a {
     border-left: solid 1px #474747;
     border-right: double 4px #474747;
     display: inline-block;
-    font-size: 1vmax;
     padding: 0 15px;
     padding-top: 5px;
+    font-size: calc(1rem + .4vw);
     text-decoration: none;
     color: white;
     overflow: hidden;
@@ -124,7 +139,7 @@ div#clients {
 
 .btn-go-to {
     text-align: center;
-    font-size: 0.8rem;
+    font-size: calc(0.4rem + .7vw);
 }
 
 
@@ -203,10 +218,14 @@ div#clients {
     text-shadow: 2px 2px 1px black;
 }
 
+#clients {
+    max-width: 60%;
+}
+
 #clients img {
     display: block;
     margin: 5px auto;
-    width: 150px;
+    width: 7vw;
     height: auto;
     justify-items: center;
     filter: drop-shadow(1px 1px 5px #ffffff6e);
@@ -381,4 +400,14 @@ footer a {
     top: 40%;
     height: 12px;
     width: 12px;
+}
+
+#assets {
+    max-width: 80%;
+}
+
+@media (min-width: 1440px) {
+    #assets {
+        max-width: 70%; 
+    }
 }

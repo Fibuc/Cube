@@ -37,4 +37,4 @@ const ultraWide4KOffsetRatio = 5.4;
 
 
 // ============ Other configs ============
-const numberOfImagePortfolio = 25
+const numberOfImagePortfolio = 16
