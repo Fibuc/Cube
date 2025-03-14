@@ -51,7 +51,7 @@ header {
 }
 
 #logo-image {
-    max-width: 10vmax;
+    max-width: 20svh;
     height: auto;
     filter: drop-shadow(4px 4px 2px #ffffff2d);
     transition: 3s;
@@ -292,7 +292,7 @@ footer a {
 
 #credits img {
     margin: 15px 5px;
-    max-width: 65px;
+    max-width: 5svh;
 }
 
 .margin-hr {
@@ -344,6 +344,7 @@ footer a {
 }
 
 .pipe-right, .pipe-left {
+    transition: top 50ms ease;
     position: absolute;
     width: min(10vw, 600px);
     height: auto;

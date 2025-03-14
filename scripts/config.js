@@ -1,3 +1,13 @@
+// ============ Portfolio configs ============
+const numberOfImagePortfolio = 16
+
+// ===========================================
+
+
+
+
+
+
 // ============ Screens config ============
 
 // Screen height
@@ -16,25 +26,35 @@ const quadHDUltraWideWidth = 5120;
 const fourKWideWidth = 5120;
 const fourKUltraWideWidth = 7680;
 
+// =========================================
 
 
-// ============ Ratios pipe offsets ============
+
+
+
+
+// ============ Ratios Parallax ============
+
+// ***** Pipes offsets *****
 
 // Full HD screens
-const normalHDOffsetRatio = 1.48;
-const wideHDOffsetRatio = 2.2;
-const ultraWideHDOffsetRatio = 3.3;
+const normalHDOffsetPipesRatio = 1.42;
+const wideHDOffsetPipesRatio = 1.92;
+const ultraWideHDOffsetPipesRatio = 2.65;
 
 // Quad HD screens
-const normalQuadHDOffsetRatio = 2.3;
-const wideQuadHDOffsetRatio = 3.2;
-const ultraWideQuadHDOffsetRatio = 4.2;
+const normalQuadHDOffsetPipesRatio = 2.0;
+const wideQuadHDOffsetPipesRatio = 2.54;
+const ultraWideQuadHDOffsetPipesRatio = 3.29;
 
 // 4K screens
-const normal4KOffsetRatio = 3.6;
-const wide4KOffsetRatio = 4.8;
-const ultraWide4KOffsetRatio = 5.4;
+const normal4KOffsetPipesRatio = 2.97;
+const wide4KOffsetPipesRatio = 3.48;
+const ultraWide4KOffsetPipesRatio = 2.95;
 
+// ***** Background offsets *****
+const normalWidthBackgroundOffset = 0.1;
+const wideWidthBackgroundOffset = 0.2;
+const ultraWideWidthBackgroundOffset = 0.35;
 
-// ============ Other configs ============
-const numberOfImagePortfolio = 16
+// ==========================================

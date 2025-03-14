@@ -4,7 +4,8 @@ const pipeRight = document.querySelector(".pipe-right");
 const pipeLeft = document.querySelector(".pipe-left");
 const startPosition = windowHeight / 3;
 
-let selectedRatioOffset = null
+let selectedPipeRatioOffset = null
+let selectedBackgroundRatioOffset = null
 
 // Configuration initial position of pipes
 pipeRight.style.top = `${startPosition}px`;
@@ -13,27 +14,44 @@ pipeLeft.style.top = `${startPosition}px`;
 // Check screensize of visitor.
 if (windowHeight > quadHDHeight) {
     if (windowWidth < fourKWideWidth) {
-        selectedRatioOffset = normal4KOffsetRatio;
+        selectedPipeRatioOffset = normal4KOffsetPipesRatio;
+        selectedBackgroundRatioOffset = normalWidthBackgroundOffset;
+
     } else if (windowWidth < fourKUltraWideWidth) {
-        selectedRatioOffset = wide4KOffsetRatio;
+        selectedPipeRatioOffset = wide4KOffsetPipesRatio;
+        selectedBackgroundRatioOffset = wideWidthBackgroundOffset;
+
     } else {
-        selectedRatioOffset = ultraWide4KOffsetRatio;
+        selectedPipeRatioOffset = ultraWide4KOffsetPipesRatio;
+        selectedBackgroundRatioOffset = ultraWideWidthBackgroundOffset;
     }
+
 } else if (windowHeight > fullHDHeight) {
     if (windowWidth < quadHDWideWidth) {
-        selectedRatioOffset = normalQuadHDOffsetRatio;
+        selectedPipeRatioOffset = normalQuadHDOffsetPipesRatio;
+        selectedBackgroundRatioOffset = normalWidthBackgroundOffset;
+
     } else if (windowWidth < quadHDUltraWideWidth) {
-        selectedRatioOffset = wideQuadHDOffsetRatio;
+        selectedPipeRatioOffset = wideQuadHDOffsetPipesRatio;
+        selectedBackgroundRatioOffset = wideWidthBackgroundOffset;
+
     } else {
-        selectedRatioOffset = ultraWideQuadHDOffsetRatio;
+        selectedPipeRatioOffset = ultraWideQuadHDOffsetPipesRatio;
+        selectedBackgroundRatioOffset = ultraWideWidthBackgroundOffset;
     }
+
 } else {
     if (windowWidth < fullHDWideWidth) {
-        selectedRatioOffset = normalHDOffsetRatio;
+        selectedPipeRatioOffset = normalHDOffsetPipesRatio;
+        selectedBackgroundRatioOffset = normalWidthBackgroundOffset;
+
     } else if (windowWidth < fullHDUltraWideWidth) {
-        selectedRatioOffset = wideHDOffsetRatio;
+        selectedPipeRatioOffset = wideHDOffsetPipesRatio;
+        selectedBackgroundRatioOffset = wideWidthBackgroundOffset;
+
     } else {
-        selectedRatioOffset = ultraWideHDOffsetRatio;
+        selectedPipeRatioOffset = ultraWideHDOffsetPipesRatio;
+        selectedBackgroundRatioOffset = ultraWideWidthBackgroundOffset;
     }
 }
 
@@ -43,13 +61,11 @@ window.addEventListener('scroll', () => {
     let scrollTrigger = windowHeight / 200;
 
     if (scrollPosition > scrollTrigger) {
-        let offset = (scrollPosition - scrollTrigger) * 0.1;
-        document.body.style.backgroundPosition = `center ${-offset}px`;
+        let backgroundOffset = (scrollPosition - scrollTrigger) * selectedBackgroundRatioOffset;
+        document.body.style.backgroundPosition = `center ${-backgroundOffset}px`;
         
-        let pipeOffset = (scrollPosition - scrollTrigger) * selectedRatioOffset;
+        let pipeOffset = (scrollPosition - scrollTrigger) * selectedPipeRatioOffset;
         pipeRight.style.top = `${-pipeOffset + startPosition}px`;
-        pipeRight.style.opacity = 1
-        pipeLeft.style.opacity = 1
         pipeLeft.style.top = `${-pipeOffset + startPosition}px`;
     } else {
         document.body.style.backgroundPosition = 'center top';
