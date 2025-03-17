@@ -1,8 +1,8 @@
 const clientContainer = document.getElementById("clients");
 const numberClientByRow = 6;
-const rowClassList = ["row", "justify-content-center"];
-const imageClassList = ["img-fluid"];
-const imageDivClassList = [
+const rowClientClassList = ["row", "justify-content-center"];
+const imageClientClassList = ["img-fluid"];
+const imageClientDivClassList = [
     "col-6",
     "col-md-4",
     "col-lg-2",
@@ -17,8 +17,8 @@ function createImageElement(parent, clientCurrentNumber) {
     let imageDiv = document.createElement("div");
     let imageElement = document.createElement('img');
 
-    imageDiv.classList.add(...imageDivClassList);
-    imageElement.classList.add(...imageClassList);
+    imageDiv.classList.add(...imageClientDivClassList);
+    imageElement.classList.add(...imageClientClassList);
     imageElement.src = `src/images/clients/client${clientCurrentNumber + 1}.png`;
 
     imageDiv.appendChild(imageElement);
@@ -27,7 +27,7 @@ function createImageElement(parent, clientCurrentNumber) {
 
 function createRow(parent) {
     let rowDiv = document.createElement("div");
-    rowDiv.classList.add(...rowClassList);
+    rowDiv.classList.add(...rowClientClassList);
     parent.appendChild(rowDiv);
     return rowDiv;
 }
@@ -36,7 +36,6 @@ let currentRow = null;
 
 for (let i = 0; i < numberOfClients; i++) {
     if (i === 0 || i % numberClientByRow === 0) {
-        console.log(i)
         currentRow = createRow(clientContainer);
     }
     createImageElement(currentRow, i)

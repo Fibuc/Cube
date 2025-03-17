@@ -1,5 +1,6 @@
-// ============ Portfolio configs ============
+// ============ General configs ============
 const numberOfImagePortfolio = 16
+const numberOfClients = 18
 
 // ===========================================
 
@@ -38,19 +39,19 @@ const fourKUltraWideWidth = 7680;
 // ***** Pipes offsets *****
 
 // Full HD screens
-const normalHDOffsetPipesRatio = 1.42;
-const wideHDOffsetPipesRatio = 1.92;
-const ultraWideHDOffsetPipesRatio = 2.65;
+const normalHDOffsetPipesRatio = 1.35;
+const wideHDOffsetPipesRatio = 1.85;
+const ultraWideHDOffsetPipesRatio = 2.45;
 
 // Quad HD screens
-const normalQuadHDOffsetPipesRatio = 2.0;
-const wideQuadHDOffsetPipesRatio = 2.54;
-const ultraWideQuadHDOffsetPipesRatio = 3.29;
+const normalQuadHDOffsetPipesRatio = 1.90;
+const wideQuadHDOffsetPipesRatio = 2.41;
+const ultraWideQuadHDOffsetPipesRatio = 3.01;
 
 // 4K screens
-const normal4KOffsetPipesRatio = 2.97;
-const wide4KOffsetPipesRatio = 3.48;
-const ultraWide4KOffsetPipesRatio = 2.95;
+const normal4KOffsetPipesRatio = 2.74;
+const wide4KOffsetPipesRatio = 3.18;
+const ultraWide4KOffsetPipesRatio = 2.65;
 
 // ***** Background offsets *****
 const normalWidthBackgroundOffset = 0.1;
@@ -58,3 +59,5 @@ const wideWidthBackgroundOffset = 0.2;
 const ultraWideWidthBackgroundOffset = 0.35;
 
 // ==========================================
+
+

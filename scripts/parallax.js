@@ -2,14 +2,18 @@ const windowHeight = window.innerHeight;
 const windowWidth = window.innerWidth;
 const pipeRight = document.querySelector(".pipe-right");
 const pipeLeft = document.querySelector(".pipe-left");
-const startPosition = windowHeight / 3;
+const backgroundNeon = document.querySelector('.neon-effect-dealer')
+const startPositionPipes = windowHeight / 3;
+let startPositionNeon = windowHeight * 0.29 + ((windowWidth/windowHeight).toFixed(2) - 1.78) * windowHeight *.17;
 
 let selectedPipeRatioOffset = null
 let selectedBackgroundRatioOffset = null
 
 // Configuration initial position of pipes
-pipeRight.style.top = `${startPosition}px`;
-pipeLeft.style.top = `${startPosition}px`;
+pipeRight.style.top = `${startPositionPipes}px`;
+pipeLeft.style.top = `${startPositionPipes}px`;
+backgroundNeon.style.top = `${startPositionNeon}px`;
+console.log()
 
 // Check screensize of visitor.
 if (windowHeight > quadHDHeight) {
@@ -63,30 +67,34 @@ window.addEventListener('scroll', () => {
     if (scrollPosition > scrollTrigger) {
         let backgroundOffset = (scrollPosition - scrollTrigger) * selectedBackgroundRatioOffset;
         document.body.style.backgroundPosition = `center ${-backgroundOffset}px`;
-        
+        console.log(startPositionNeon)
+        console.log(backgroundOffset)
+        console.log(backgroundNeon.style.top)
+        backgroundNeon.style.top = `${-backgroundOffset + startPositionNeon}px`;
+
         let pipeOffset = (scrollPosition - scrollTrigger) * selectedPipeRatioOffset;
-        pipeRight.style.top = `${-pipeOffset + startPosition}px`;
-        pipeLeft.style.top = `${-pipeOffset + startPosition}px`;
+        pipeRight.style.top = `${-pipeOffset + startPositionPipes}px`;
+        pipeLeft.style.top = `${-pipeOffset + startPositionPipes}px`;
     } else {
         document.body.style.backgroundPosition = 'center top';
     }
 });
 
 
-document.getElementById("transition-link").addEventListener("click", function(event) {
-    event.preventDefault();
-    let door1 = document.querySelector(".transition-block-door-1");
-    let door2 = document.querySelector(".transition-block-door-2");
-    // let audio = new Audio("src/sounds/elevator.wav")
+// document.getElementById("transition-link").addEventListener("click", function(event) {
+//     event.preventDefault();
+//     let door1 = document.querySelector(".transition-block-door-1");
+//     let door2 = document.querySelector(".transition-block-door-2");
+//     // let audio = new Audio("src/sounds/elevator.wav")
 
-    door1.classList.add("slide-in");
-    door2.classList.add("slide-out");
+//     door1.classList.add("slide-in");
+//     door2.classList.add("slide-out");
 
-    audio.play();
+//     audio.play();
 
 
-    setTimeout(() => {
-        window.location.href = this.href;
-    }, 2000);
-});
+//     setTimeout(() => {
+//         window.location.href = this.href;
+//     }, 2000);
+// });
 

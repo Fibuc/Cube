@@ -15,6 +15,7 @@
 		<script src="scripts/parallax.js" defer></script>
 		<script src="scripts/portfolio.js" defer></script>
 		<script src="scripts/transition.js" defer></script>
+		<script src="scripts/neon_effect.js" defer></script>
 		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 		<script type="text/javascript">
 			;(function () {
@@ -34,6 +35,7 @@
 		/>
 	</head>
 	<body>
+		<div class="neon-effect-dealer"></div>
 		<header class="d-flex">
 			<div class="container d-flex justify-content-between">
 				<div class="logo d-flex align-items-center">
@@ -56,6 +58,12 @@
 		<img src="src/images/style/tuyau test.png" alt="" class="d-none d-lg-block pipe pipe-right" draggable="false" onmousedown="return false;">
 		<img src="src/images/style/tuyau test.png" alt="" class="d-none d-lg-block pipe pipe-left" draggable="false" onmousedown="return false;">
 
+		<div class="portfolio-div">
+			<div class="container" id="portfolio-container">
+					
+				</div>
+			</div>
+		</div>
 		  
 
 		<footer class="container-fluid footer-background">
@@ -85,6 +93,16 @@
 				</div>
 			</div>
 		</footer>
+
+		<div class="modal fade" id="pictureModal" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-xl">
+				<div class="modal-content">
+					<div class="modal-body text-center">
+						<img id="modal-image" class="img-fluid rounded" alt="Zoomed Image">
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<div class="modal fade" id="emailModal" tabindex="-1" aria-hidden="true">
 			<div class="modal-dialog">

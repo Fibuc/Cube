@@ -43,11 +43,10 @@ header {
     position: fixed;
     width: 100%;
     height: 8%;
-    z-index: 1000;
     background-color: #000000;
     top: 0;
     box-shadow: 2px 2px 20px #474747;
-    z-index: 20000;
+    z-index: 800;
 }
 
 #logo-image {
@@ -107,8 +106,8 @@ nav a:hover::after, nav a:focus {
     top: 0;
 }
 
-#emailModal {
-    margin-top: 25vh;
+#emailModal, #pictureModal {
+    margin-top: 15vh;
 }
 
 .container-background {
@@ -188,7 +187,7 @@ div#clients {
     margin-bottom: 15vh;
 }
 
-#portfolio img {
+#portfolio img, #portfolio-container img {
     margin: 5px auto;
     border-radius: 15px;
     height: 100%;
@@ -196,13 +195,13 @@ div#clients {
     object-fit: cover;
 }
 
-#portfolio img:hover{
+#portfolio img:hover, #portfolio-container img:hover{
     transition: 100ms;
     box-shadow: 0 0 10px 2px #ccff00;
     transform: scale(1.03)
 }
 
-#portfolio img,  #services img {
+#portfolio img,  #services img, #portfolio-container img {
     transition: 250ms;
 }
 
@@ -225,7 +224,7 @@ div#clients {
 #clients img {
     display: block;
     margin: 5px auto;
-    width: 7vw;
+    width: 85%;
     height: auto;
     justify-items: center;
     filter: drop-shadow(1px 1px 5px #ffffff6e);
@@ -322,7 +321,7 @@ footer a {
     position: fixed;
     width: 50vw;
     height: 100vw;
-    z-index: 20000;
+    z-index: 2000;
     transition: left 2s cubic-bezier(.52,.01,.41,1.19);
 }
 
@@ -343,12 +342,12 @@ footer a {
     left: 50%;
 }
 
-.pipe-right, .pipe-left {
+.pipe {
     transition: top 50ms ease;
     position: absolute;
     width: min(10vw, 600px);
     height: auto;
-    z-index: 10001;
+    z-index: 1000;
     filter: drop-shadow(5px 10px 15px  #000000);
 }
 
@@ -403,12 +402,109 @@ footer a {
     width: 12px;
 }
 
-#assets {
+#assets, #portfolio-container {
     max-width: 80%;
+}
+
+@media (min-width: 992px) {
+    .container-background {
+        background-color: #ccff00bf;
+        clip-path: polygon(0 5%, 10% 5%, 11% 0, 89% 0%, 90% 5%, 100% 5%, 100% 95%, 90% 95%, 89% 100%, 11% 100%, 10% 95%, 0% 95%);
+    }
+    #clients img {
+        width: 7vw;
+    }
 }
 
 @media (min-width: 1440px) {
     #assets {
-        max-width: 70%; 
+        max-width: 70%;
     }
+}
+
+@media (min-width: 2400px) {
+    #pictureModal .modal-dialog {
+        max-width: 50vw;
+    }
+}
+
+
+/* Animation de chargement de la page */
+@keyframes opacityUp {
+    from {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+}
+
+@keyframes blockPosition {
+    from {
+        position: fixed;
+    }
+    10% {
+        opacity: 1;
+    }
+}
+
+.page-enter-opacity {
+    animation: opacityUp 4000ms linear;
+}
+
+/* Animation de sortie de la page */
+@keyframes opacityDown {
+    from {
+        opacity: 1;
+    }
+    10% {
+        opacity: 0;
+    }
+}
+
+.page-enter-pipes {
+    animation: fromTop 1.5s cubic-bezier(.1,1.07,.85,1.04);
+}
+
+@keyframes goTop {
+    to {
+        top: 20vh;
+    }
+}
+
+@keyframes fromTop {
+    from {
+        top: 100vh;
+    }
+}
+
+.page-exit-opacity {
+    animation: opacityDown 4000ms ease-in;
+}
+
+@keyframes shake {
+    0%   { transform: translate(0, 0); }
+    10%  { transform: translate(-5px, -2px); }
+    20%  { transform: translate(4px, 3px); }
+    30%  { transform: translate(-3px, -1px); }
+    40%  { transform: translate(4px, 2px); }
+    50% { transform: translate(-4px, -3px); }
+    60% { transform: translate(5px, 2px); }
+    70% { transform: translate(0, -3px); }
+    80% { transform: translate(-3px, 1px); }
+    90% { transform: translate(2px, -3px); }
+    100% { transform: translate(0, 0); }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+
+.neon-effect-dealer {
+    position: fixed;
+    z-index: -1;
+    clip-path: polygon(56% 0%, 83% 17%, 78% 63%, 141% 71%, 100% 100%, 0% 100%, -4% 12%);
+    width: 44%;
+    height: 72%;
 }
