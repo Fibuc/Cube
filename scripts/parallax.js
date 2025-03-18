@@ -1,60 +1,104 @@
 const windowHeight = window.innerHeight;
 const windowWidth = window.innerWidth;
-const pipeRight = document.querySelector(".pipe-right");
-const pipeLeft = document.querySelector(".pipe-left");
+const classListPipes = `d-none d-lg-block pipe pipe-`
+let pipeLeftElement = null
+let pipeRightElement = null
+let pageHeight = null;
+
+function getSourceImage() {
+    if (window.location.pathname.includes("index.html")) {
+        return `src/images/style/tuyau_test.png`
+    } else if (window.location.pathname.includes("portfolio.html")) {
+        return `src/images/style/tuyau_test2.png`
+    }
+}
+
+function addPipesToBody() {
+    // Get the header element where the pipes will be inserted after
+    const header = document.querySelector("header");
+
+    // Create left and right pipe elements as images
+    let pipeLeft = document.createElement("img");
+    let pipeRight = document.createElement("img");
+    pipeLeft.className = classListPipes + "left page-enter-pipe-left";
+    pipeRight.className = classListPipes + "right page-enter-pipe-right";
+    pipeLeft.src = pipeRight.src = getSourceImage();
+    pipeLeft.draggable = pipeRight.draggable = false;
+    header.insertAdjacentElement("afterend", pipeRight);
+    header.insertAdjacentElement("afterend", pipeLeft);
+    pipeLeftElement = document.querySelector(".pipe-left");
+    pipeRightElement = document.querySelector(".pipe-right");
+
+    // Wait for the pipe image to load before executing further actions
+    pipeLeft.onload = function () {
+        // Get the height of the left pipe image once loaded
+        const imageHeight = pipeLeftElement.clientHeight;
+        // Calculate the maximum scroll value for the page
+        let maxScroll = pageHeight - window.innerHeight
+
+        // Add scroll event listener to update pipe position as the page scrolls
+        window.addEventListener("scroll", function () {
+            let scrollY = window.scrollY;
+            let maxTranslate = imageHeight - pageHeight + (windowHeight * .33);
+
+            // Calculate the translateY value based on scroll position and maxTranslate
+            let translateY = (scrollY / maxScroll) * maxTranslate;
+
+            // Apply the transformation to the left pipe (inverted on X-axis) and right pipe
+            pipeLeftElement.style.transform = `translateY(-${translateY}px) scaleX(-1)`;
+            pipeRight.style.transform = `translateY(-${translateY}px)`;
+        });
+    };
+}
+
+// Wait for the window to load, then delay the execution by 150ms to ensure page height is calculated correctly
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        pageHeight = document.documentElement.scrollHeight;
+        addPipesToBody()
+    }, 150);
+});
+
+
+
+
 const backgroundNeon = document.querySelector('.neon-effect-dealer')
-const startPositionPipes = windowHeight / 3;
 let startPositionNeon = windowHeight * 0.29 + ((windowWidth/windowHeight).toFixed(2) - 1.78) * windowHeight *.17;
 
-let selectedPipeRatioOffset = null
 let selectedBackgroundRatioOffset = null
 
-// Configuration initial position of pipes
-pipeRight.style.top = `${startPositionPipes}px`;
-pipeLeft.style.top = `${startPositionPipes}px`;
 backgroundNeon.style.top = `${startPositionNeon}px`;
-console.log()
 
-// Check screensize of visitor.
 if (windowHeight > quadHDHeight) {
     if (windowWidth < fourKWideWidth) {
-        selectedPipeRatioOffset = normal4KOffsetPipesRatio;
         selectedBackgroundRatioOffset = normalWidthBackgroundOffset;
 
     } else if (windowWidth < fourKUltraWideWidth) {
-        selectedPipeRatioOffset = wide4KOffsetPipesRatio;
         selectedBackgroundRatioOffset = wideWidthBackgroundOffset;
 
     } else {
-        selectedPipeRatioOffset = ultraWide4KOffsetPipesRatio;
         selectedBackgroundRatioOffset = ultraWideWidthBackgroundOffset;
     }
 
 } else if (windowHeight > fullHDHeight) {
     if (windowWidth < quadHDWideWidth) {
-        selectedPipeRatioOffset = normalQuadHDOffsetPipesRatio;
         selectedBackgroundRatioOffset = normalWidthBackgroundOffset;
 
     } else if (windowWidth < quadHDUltraWideWidth) {
-        selectedPipeRatioOffset = wideQuadHDOffsetPipesRatio;
         selectedBackgroundRatioOffset = wideWidthBackgroundOffset;
 
     } else {
-        selectedPipeRatioOffset = ultraWideQuadHDOffsetPipesRatio;
         selectedBackgroundRatioOffset = ultraWideWidthBackgroundOffset;
     }
 
 } else {
     if (windowWidth < fullHDWideWidth) {
-        selectedPipeRatioOffset = normalHDOffsetPipesRatio;
         selectedBackgroundRatioOffset = normalWidthBackgroundOffset;
 
     } else if (windowWidth < fullHDUltraWideWidth) {
-        selectedPipeRatioOffset = wideHDOffsetPipesRatio;
         selectedBackgroundRatioOffset = wideWidthBackgroundOffset;
 
     } else {
-        selectedPipeRatioOffset = ultraWideHDOffsetPipesRatio;
         selectedBackgroundRatioOffset = ultraWideWidthBackgroundOffset;
     }
 }
@@ -67,34 +111,9 @@ window.addEventListener('scroll', () => {
     if (scrollPosition > scrollTrigger) {
         let backgroundOffset = (scrollPosition - scrollTrigger) * selectedBackgroundRatioOffset;
         document.body.style.backgroundPosition = `center ${-backgroundOffset}px`;
-        console.log(startPositionNeon)
-        console.log(backgroundOffset)
-        console.log(backgroundNeon.style.top)
         backgroundNeon.style.top = `${-backgroundOffset + startPositionNeon}px`;
 
-        let pipeOffset = (scrollPosition - scrollTrigger) * selectedPipeRatioOffset;
-        pipeRight.style.top = `${-pipeOffset + startPositionPipes}px`;
-        pipeLeft.style.top = `${-pipeOffset + startPositionPipes}px`;
     } else {
         document.body.style.backgroundPosition = 'center top';
     }
 });
-
-
-// document.getElementById("transition-link").addEventListener("click", function(event) {
-//     event.preventDefault();
-//     let door1 = document.querySelector(".transition-block-door-1");
-//     let door2 = document.querySelector(".transition-block-door-2");
-//     // let audio = new Audio("src/sounds/elevator.wav")
-
-//     door1.classList.add("slide-in");
-//     door2.classList.add("slide-out");
-
-//     audio.play();
-
-
-//     setTimeout(() => {
-//         window.location.href = this.href;
-//     }, 2000);
-// });
-

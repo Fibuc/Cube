@@ -462,19 +462,23 @@ footer a {
     }
 }
 
-.page-enter-pipes {
-    animation: fromTop 1.5s cubic-bezier(.1,1.07,.85,1.04);
+.page-enter-pipe-left {
+    animation: fromTopScaleX 1.5s cubic-bezier(.1,1.07,.85,1.04);
 }
 
-@keyframes goTop {
-    to {
-        top: 20vh;
-    }
+.page-enter-pipe-right {
+    animation: fromTop 1.5s cubic-bezier(.1,1.07,.85,1.04);
 }
 
 @keyframes fromTop {
     from {
-        top: 100vh;
+        transform: translateY(2000px);
+    }
+}
+
+@keyframes fromTopScaleX {
+    from {
+        transform: translateY(2000px) scaleX(-1);
     }
 }
 
