@@ -6,10 +6,10 @@ let pipeRightElement = null
 let pageHeight = null;
 
 function getSourceImage() {
-    if (window.location.pathname.includes("index.html")) {
-        return `src/images/style/tuyau_test.png`
-    } else if (window.location.pathname.includes("portfolio.html")) {
+    if (window.location.pathname.includes("portfolio.html")) {
         return `src/images/style/tuyau_test2.png`
+    } else {
+        return `src/images/style/tuyau_test.png`
     }
 }
 

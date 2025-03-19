@@ -20,7 +20,7 @@ document.getElementById('emailForm').addEventListener('submit', function(event) 
         message: messageInput.value,
     };
 
-    emailjs.send("service_3q9tggx", "template_ddwe1kw", params)
+    emailjs.send("service_o5ny6d8", "template_74gqjbj", params)
         .then(() => {
             nameInput.value = '';
             emailInput.value = '';

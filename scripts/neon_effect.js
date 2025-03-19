@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
 
-    if (window.innerWidth >= 992) {
+    if (windowWidth >= 992) {
         flickerNeonDealer();
     }
 });

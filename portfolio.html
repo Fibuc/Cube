@@ -37,22 +37,28 @@
 	<body>
 		<div class="neon-effect-dealer"></div>
 		<header class="d-flex">
-			<div class="container d-flex justify-content-between">
+			<span class="container d-flex justify-content-between">
 				<div class="logo d-flex align-items-center">
 					<a href="index.html"><img src="src/images/logos/cube-title-empty.png" alt="" id="logo-image" /></a>
 				</div>
-				<nav class="position-sticky top-0">
+				<span></span>
+				<nav class="d-none d-lg-block position-sticky top-0 mt-auto">
 					<ul class="nav">
-						<li class="nav-item px-3"><a href="index.html">Home</a></li>
-						<li class="nav-item px-3">
+						<li class="nav-item"><a href="index.html">Home</a></li>
+						<li class="nav-item">
 							<a href="https://www.fab.com/sellers/Cube001" target="_blank">Shop</a>
 						</li>
-						<li class="nav-item px-3" data-bs-toggle="modal" data-bs-target="#emailModal">
+						<li class="nav-item" data-bs-toggle="modal" data-bs-target="#emailModal">
 							<a href="#">Contact</a>
 						</li>
 					</ul>
 				</nav>
-			</div>
+				<nav class="d-flex d-lg-none navbar">
+					<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+						<img src="src/images/style/hamburger_nav.svg" alt="">
+					</button>
+				</nav>
+			</span>
 		</header>
 
 		<div class="portfolio-div">
@@ -161,6 +167,28 @@
 						</form>
 					</div>
 				</div>
+			</div>
+		</div>
+
+		<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+			<div class="offcanvas-header">
+				<h5 id="offcanvasNavbarLabel">Menu</h5>
+				<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" id="close-btn-nav"></button>
+			</div>
+			<hr>
+			<div class="offcanvas-body">
+				<ul class="nav flex-column">
+					<li class="nav-item">
+						<a class="nav-link" href="index.html">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="https://www.fab.com/sellers/Cube001" target="_blank">Shop</a>
+					</li>
+					<li class="nav-item" data-bs-toggle="modal" data-bs-target="#emailModal">
+						<a class="nav-link" href="#">Contact</a>
+					</li>
+					</li>
+				</ul>
 			</div>
 		</div>
 
