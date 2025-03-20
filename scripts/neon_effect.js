@@ -10,14 +10,13 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     function flickerNeonDealer() {
-        let flickerDelayDealer = Math.random() * 50 + 5;
+        let flickerDelayDealer = Math.random() * 150 + 5;
         let opacityDealer = Math.random() * 0.05; // Opacité en haut entre 0.5 et 1
 
         neonEffectDealer.style.background = `linear-gradient(rgba(0, 0, 0, ${opacityDealer}) 5%, rgba(0, 0, 0, ${opacityDealer}) 25%,  rgba(0, 0, 0, ${opacityDealer * 3}) 55%,  rgba(0, 0, 0, ${opacityDealer * 5}) 100%)`;
         
         setTimeout(flickerNeonDealer, flickerDelayDealer);
     };
-
 
     if (windowWidth >= 992) {
         flickerNeonDealer();

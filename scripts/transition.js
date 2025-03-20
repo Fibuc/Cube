@@ -21,7 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 let childs = document.body.children;
                 document.body.style.overflow = "hidden"
                 Array.from(childs).forEach(child => {
-                    if (child.tagName !== "HEADER" && !child.classList.contains("pipe") && windowWidth > 992) {
+                    if (child.tagName !== "HEADER" &&
+                        !child.classList.contains("pipe") &&
+                        windowWidth > 992 && child.id !== "services"
+                    ) {
                         child.classList.add("shake")
                     }
                 })

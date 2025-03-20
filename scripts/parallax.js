@@ -7,9 +7,9 @@ let pageHeight = null;
 
 function getSourceImage() {
     if (window.location.pathname.includes("portfolio.html")) {
-        return `src/images/style/tuyau_test2.png`
+        return `src/images/style/pipes_portfolio.png`
     } else {
-        return `src/images/style/tuyau_test.png`
+        return `src/images/style/pipes_home.png`
     }
 }
 

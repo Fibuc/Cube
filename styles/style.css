@@ -1,5 +1,5 @@
 body {
-    background-image: url(../src/images/background/background.png);
+    background-image: url(../src/images/background/background.jpg);
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -27,7 +27,7 @@ h3 {
 }
 
 h4 {
-    font-size: calc(1rem + .4vw)
+    font-size: calc(0.7rem + .4vw)
 }
 
 footer a, .copywrite {
@@ -111,7 +111,7 @@ nav a {
     margin-bottom: -5px;
     text-transform: uppercase;
     text-align: center;
-    font-size: calc(0.5rem + .7vw);
+    font-size: calc(0.3rem + .7vw);
     text-decoration: none;
     color: white;
     overflow: hidden;
@@ -162,7 +162,10 @@ nav li:hover::after, nav li:focus {
     width: 4svh;
     height: 4svh;
     background: black;
-    
+}
+
+.navbar button img:hover{
+    opacity: 70%;
 }
 
 #offcanvasNavbar {
@@ -201,7 +204,7 @@ nav li:hover::after, nav li:focus {
 
 
 #emailModal, #pictureModal {
-    margin-top: 15vh;
+    margin-top: 10svh;
 }
 
 .container-background {
@@ -272,6 +275,9 @@ div#clients {
 .hr-div-padding-top {
     padding-top: 35px;
 }
+.hr-div-padding-top {
+    padding-top: 35px;
+}
 
 .portfolio-div {
     background-color: #0000007e;
@@ -321,7 +327,8 @@ div#clients {
     width: 85%;
     height: auto;
     justify-items: center;
-    filter: drop-shadow(1px 1px 5px #ffffff6e);
+    /* filter: drop-shadow(1px 1px 5px #ffffff6e); */
+    filter: drop-shadow(1px 1px 15px #ffffff);
 }
 
 #contact {
@@ -502,10 +509,15 @@ footer a:hover {
 
 @media (min-width: 2400px) {
     #pictureModal .modal-dialog {
-        max-width: 50vw;
+        max-width: 50svw;
     }
 }
 
+@media (max-width: 992px) {
+    #pictureModal .modal-dialog {
+        max-width: 95svw;
+    }
+}
 
 /* Animation de chargement de la page */
 @keyframes opacityUp {

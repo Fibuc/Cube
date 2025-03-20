@@ -13,7 +13,6 @@ const imagePortfolioDivClassList = [
 ];
 
 function createSwiper(){
-
   const swiper = new Swiper('.swiper', {
       loop: true,
       grabCursor: true,
@@ -54,27 +53,40 @@ function createSwiper(){
 function showImage(img) {
   const modalImage = document.getElementById("modal-image");
   modalImage.src = img.src;
-
-  // Affiche la modal Bootstrap
   const pictureModal = new bootstrap.Modal(document.getElementById('pictureModal'));
   pictureModal.show();
 }
 
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]]; // Échange des éléments
+  }
+}
+
 function addPictureOnSwipper() {
+  let allChilds = [];
   let swiperWrapper = document.querySelector(".swiper-wrapper")
   for (let i = 1; i <= numberOfImagePortfolio; i++) {
       let img = new Image();
       img.src = `src/images/portfolio/portfolio${i}.jpg`;
+      let slide = document.createElement("div");
+      let imageElement = document.createElement('img');
       img.onload = () => {
-          let slide = document.createElement("div");
           slide.classList.add("swiper-slide");
-          let imageElement = document.createElement('img');
           imageElement.src = img.src;
-          imageElement.onclick = () => showImage(imageElement);
-          slide.appendChild(imageElement);
-          swiperWrapper.appendChild(slide);
-      };
-  }
+          if (windowWidth > 619) {
+            imageElement.onclick = () => showImage(imageElement);
+          }
+        };
+      slide.appendChild(imageElement);
+      allChilds.push(slide)
+    }
+  
+  shuffleArray(allChilds);
+  allChilds.forEach(child => {
+      swiperWrapper.appendChild(child);
+  });
 }
 
 function createImageElement(parent, clientCurrentNumber) {
@@ -84,7 +96,9 @@ function createImageElement(parent, clientCurrentNumber) {
   imageDiv.classList.add(...imagePortfolioDivClassList);
   imageElement.classList.add(...imagePortfolioClassList);
   imageElement.src = `src/images/portfolio/portfolio${clientCurrentNumber + 1}.jpg`;
-  imageElement.onclick = () => showImage(imageElement);
+  if (windowWidth > 767) {
+    imageElement.onclick = () => showImage(imageElement);
+  }
 
   imageDiv.appendChild(imageElement);
   parent.appendChild(imageDiv);
